@@ -12,39 +12,34 @@
 <body>
 <div class="container">
     <header>
-        <h1>Listado de Películas</h1>
-        <p th:text="${nombre}"></p>
+        <h1>Listado de Ciudades</h1>
         <div th:replace="nav :: navega"></div>
     </header>
     <main>
-        <table class="table" id="customers">
+        <table class="table" id="address">
             <thead>
             <tr>
                 <th>Id</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Email</th>
-                <th>Accion</th>
+                <th>Ciudad</th>
+                <th>País</th>
             </tr>
             </thead>
             <tbody>
-                <tr th:each="customer: ${customers}">
-                    <th th:text="${customer.getCustomerId()}">Esto es el text</th>
-                    <td th:text="${customer.getFirstName()}">Esto es el text</td>
-                    <td th:text="${customer.getLastName()}">Esto es el text</td>
-                    <td th:text="${customer.getEmail()}">Esto es el text</td>
-                    <td><a th:href="@{/customer/{id}(id=${customer.getCustomerId()})}">editar</a></td>
+                <tr th:each="city: ${cities}">
+                    <th th:text="${city.getCityId()}">Esto es el text</th>
+                    <td th:text="${city.getCity()}">Esto es el text</td>
+                    <td th:text="${city.getCountry().getCountry()}">Esto es el text</td>
                 </tr>
             </tbody>
         </table>
     </main>
 </div>
-
 <script>
     $(document).ready( function () {
-    $('#customers').DataTable();
+    $('#address').DataTable();
 } );
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
         crossorigin="anonymous"></script>
