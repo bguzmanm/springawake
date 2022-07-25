@@ -7,35 +7,28 @@ import java.util.List;
 
 public class CustomerService {
 
-    private List<Customer> lista = new ArrayList<Customer>();
+    private final List<Customer> list = new ArrayList<>();
 
     public CustomerService() {
-        lista.add(new Customer(1, "Cristóbal", "Pulgar", "cristo@resucitado.org"));
-        lista.add(new Customer(2, "Natalia", "Ponce", "enlacocina@cocinando.org"));
-        lista.add(new Customer(3, "Erick", "Díaz", "eric@ironman.com"));
-        lista.add(new Customer(4, "Amanda", "Díaz", "tiaamanda@escuelita.tech"));
-    }
 
-    public List<Customer> getAll(){
-        return lista;
-    }
-
-    public Customer getOne(int customerId){
-        int este = -1;
-        for (int i = 0; i < lista.size(); i++) {
-            if (lista.get(i).getCustomerId() == customerId){
-                este = i;
-            }
-        }
-        if (este != -1){
-            return lista.get(este);
-        } else {
-            return null;
-        }
+        list.add(new Customer(1, "Cristóbal", "Pulgar", "cristo@resucitado.org"));
+        list.add(new Customer(2, "Natalia", "Ponce", "enlacocina@cocinando.org"));
+        list.add(new Customer(3, "Erick", "Díaz", "eric@ironman.com"));
+        list.add(new Customer(4, "Amanda", "Díaz", "tiaamanda@escuelita.tech"));
 
     }
 
+    public List<Customer> getAll() {
+        return list;
+    }
 
 
+    public Customer getOne(int customerId) {
+        /*Utilizo stream y lambda para filtrar los datos*/
+        return list.stream()
+                .filter(c -> c.getCustomerId() == customerId) // <- esto es el lambda
+                .findFirst()
+                .orElse(null);
+    }
 
 }
