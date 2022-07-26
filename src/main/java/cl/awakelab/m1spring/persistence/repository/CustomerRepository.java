@@ -17,7 +17,9 @@ public class CustomerRepository {
     }
 
     public List<Customer> getAll(){
-        return (List<Customer>) crudRepository.findAll();
+        return (List<Customer>) crudRepository.findByFirstName("D%");
+        //return (List<Customer>) crudRepository.find("Smith", true);
+        //return (List<Customer>) crudRepository.findAllByActive(false);
     }
 
     public Optional<Customer> getOne(int customerId){

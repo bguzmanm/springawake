@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CityCrudRepository extends CrudRepository<City, Integer> {
 
-    public List<City> findByCountryId(int countryId);
+        public List<City> findByCountryId(int countryId);
 }

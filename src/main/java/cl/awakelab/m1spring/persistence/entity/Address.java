@@ -15,6 +15,11 @@ public class Address {
     private String district;
     @Column(name="city_id")
     private Integer cityId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="city_id", insertable = false, updatable = false)
+    private City city;
+
     @Column(name="postal_code")
     private String postalCode;
     private String phone;
@@ -73,5 +78,13 @@ public class Address {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 }

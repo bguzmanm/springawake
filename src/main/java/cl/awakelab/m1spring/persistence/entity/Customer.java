@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name="customer")
+@NamedQuery(name="Customer.findByFirstName", query="select c from Customer c where c.firstName like ?1")
 public class Customer {
 
     @Id
@@ -13,6 +14,11 @@ public class Customer {
     private Integer customerId;
     @Column(name="store_id")
     private Integer storeId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id", updatable = false, insertable = false)
+    private Store store;
+
     @Column(name="first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -21,6 +27,10 @@ public class Customer {
     private String email;
     @Column(name="address_id")
     private Integer addressId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="address_id", updatable = false, insertable = false)
+    private Address address;
     private Boolean active;
     @Column(name="create_date")
     private LocalDate createDate;
@@ -73,7 +83,7 @@ public class Customer {
         this.addressId = addressId;
     }
 
-    public Boolean getActive() {
+    public Boolean isActive() {
         return active;
     }
 
@@ -87,6 +97,22 @@ public class Customer {
 
     public void setCreateDate(LocalDate createDate) {
         this.createDate = createDate;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override

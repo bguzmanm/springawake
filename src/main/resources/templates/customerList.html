@@ -24,6 +24,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Email</th>
+                <th>Activo</th>
                 <th>Accion</th>
             </tr>
             </thead>
@@ -33,6 +34,7 @@
                     <td th:text="${customer.getFirstName()}">Esto es el text</td>
                     <td th:text="${customer.getLastName()}">Esto es el text</td>
                     <td th:text="${customer.getEmail()}">Esto es el text</td>
+                    <td th:text="${customer.isActive()}">Esto es el text</td>
                     <td><a th:href="@{/customer/{id}(id=${customer.getCustomerId()})}">editar</a></td>
                 </tr>
             </tbody>

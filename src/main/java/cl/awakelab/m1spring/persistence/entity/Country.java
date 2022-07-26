@@ -12,7 +12,7 @@ public class Country {
     private Integer countryId;
     private String country;
 
-    @OneToMany(mappedBy = "city")
+    @OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
     private List<City> cities;
 
 
