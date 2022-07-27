@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("address")
+@RequestMapping("/address")
 public class AddressController {
     private final AddressService service;
 

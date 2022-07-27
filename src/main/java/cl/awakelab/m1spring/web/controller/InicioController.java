@@ -13,7 +13,7 @@ public class InicioController {
     Log logger = LogFactory.getLog(InicioController.class);
     @GetMapping
     public String inicio(){
-        logger.info("Holi");
+        logger.info("Hi");
         return "index";
     }
 }
