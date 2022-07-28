@@ -16,4 +16,7 @@ public interface CustomerCrudRepository extends CrudRepository<Customer, Integer
 
     public List<Customer> findByFirstName(String firstName);
 
+    @Query(value = "select * from customer where customer.first_name like =: nombre", nativeQuery = true)
+    public List<Customer> buscarPorNombre(String nombre);
+
 }

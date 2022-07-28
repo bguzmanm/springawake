@@ -22,4 +22,11 @@ public class CityRepository {
     public List<City> getAllByCountryId(int countryId){
         return crudRepository.findByCountryId(countryId);
     }
+
+    public City save(City city){
+        return crudRepository.save(city);
+    }
+    public void delete(int cityId){
+        crudRepository.deleteById(cityId);
+    }
 }
