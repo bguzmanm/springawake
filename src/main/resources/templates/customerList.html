@@ -33,7 +33,7 @@
                     <td th:text="${cliente.getFirstName()}">Esto es el text</td>
                     <td th:text="${cliente.getLastName()}">Esto es el text</td>
                     <td th:text="${cliente.getEmail()}">Esto es el text</td>
-                    <td th:text="${cliente.isActive()}">Esto es el text</td>
+                    <td th:text="${cliente.getActive()}">Esto es el text</td>
                     <td><a th:href="@{/customer/{id}(id=${cliente.getCustomerId()})}">editar</a></td>
                 </tr>
             </tbody>

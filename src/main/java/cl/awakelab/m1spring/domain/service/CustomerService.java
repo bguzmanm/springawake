@@ -1,7 +1,7 @@
 package cl.awakelab.m1spring.domain.service;
 
-import cl.awakelab.m1spring.persistence.entity.Customer;
-import cl.awakelab.m1spring.persistence.repository.CustomerRepository;
+import cl.awakelab.m1spring.domain.dto.Customer;
+import cl.awakelab.m1spring.domain.repository.CustomerDTORepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,11 +11,12 @@ import java.util.Optional;
 public class CustomerService {
 
 
-    private final CustomerRepository repository;
+    private final CustomerDTORepository repository;
 
-    public CustomerService(CustomerRepository repository) {
+    public CustomerService(CustomerDTORepository repository) {
         this.repository = repository;
     }
+
 
     public List<Customer> getAll(){
         return repository.getAll();
@@ -31,7 +32,7 @@ public class CustomerService {
 
     public boolean delete(int customerId){
         return getOne(customerId)
-                .map(customer -> {
+                .map(customerEntity -> {
                     repository.delete(customerId);
                     return true;
                 }).orElse(false);

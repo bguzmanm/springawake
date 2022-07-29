@@ -5,8 +5,8 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name="customer")
-@NamedQuery(name="Customer.findByFirstName", query="select c from Customer c where c.firstName like ?1")
-public class Customer {
+@NamedQuery(name="Customer.findByFirstName", query="select c from CustomerEntity c where c.firstName like ?1")
+public class CustomerEntity {
 
     @Id
     @Column(name="customer_id")
@@ -17,7 +17,7 @@ public class Customer {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id", updatable = false, insertable = false)
-    private Store store;
+    private StoreEntity storeEntity;
 
     @Column(name="first_name")
     private String firstName;
@@ -30,7 +30,7 @@ public class Customer {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="address_id", updatable = false, insertable = false)
-    private Address address;
+    private AddressEntity addressEntity;
     private Boolean active;
     @Column(name="create_date")
     private LocalDate createDate;
@@ -99,20 +99,20 @@ public class Customer {
         this.createDate = createDate;
     }
 
-    public Store getStore() {
-        return store;
+    public StoreEntity getStore() {
+        return storeEntity;
     }
 
-    public void setStore(Store store) {
-        this.store = store;
+    public void setStore(StoreEntity storeEntity) {
+        this.storeEntity = storeEntity;
     }
 
-    public Address getAddress() {
-        return address;
+    public AddressEntity getAddress() {
+        return addressEntity;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddress(AddressEntity addressEntity) {
+        this.addressEntity = addressEntity;
     }
 
     @Override

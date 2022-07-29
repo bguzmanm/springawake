@@ -14,9 +14,9 @@ public class FilmActor {
     @ManyToOne
     @MapsId("filmId")
     @JoinColumn(name = "film_id", insertable = false, updatable = false)
-    private Film film;
+    private FilmEntity filmEntity;
     @ManyToOne
     @MapsId("actorId")
     @JoinColumn(name = "actor_id", insertable = false, updatable = false)
-    private Actor actor;
+    private ActorEntity actorEntity;
 }
