@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name="country")
-public class Country {
+public class CountryEntity {
     @Id
     @Column(name="country_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,7 +13,7 @@ public class Country {
     private String country;
 
     @OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
-    private List<City> cities;
+    private List<CityEntity> cities;
 
 
     public Integer getCountryId() {
@@ -32,11 +32,11 @@ public class Country {
         this.country = country;
     }
 
-    public List<City> getCities() {
+    public List<CityEntity> getCities() {
         return cities;
     }
 
-    public void setCities(List<City> cities) {
+    public void setCities(List<CityEntity> cities) {
         this.cities = cities;
     }
 

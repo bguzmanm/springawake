@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="city")
-public class City {
+public class CityEntity {
     @Id
     @Column(name="city_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +15,7 @@ public class City {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", insertable = false, updatable = false)
-    private Country country;
+    private CountryEntity countryEntity;
 
     public Integer getCityId() {
         return cityId;
@@ -41,12 +41,12 @@ public class City {
         this.countryId = countryId;
     }
 
-    public Country getCountry() {
-        return country;
+    public CountryEntity getCountry() {
+        return countryEntity;
     }
 
-    public void setCountry(Country country) {
-        this.country = country;
+    public void setCountry(CountryEntity countryEntity) {
+        this.countryEntity = countryEntity;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class City {
                 "cityId=" + cityId +
                 ", city='" + city + '\'' +
                 ", countryId=" + countryId +
-                ", country=" + country +
+                ", country=" + countryEntity +
                 '}';
     }
 }

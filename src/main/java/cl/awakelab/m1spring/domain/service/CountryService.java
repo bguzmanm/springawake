@@ -1,7 +1,8 @@
 package cl.awakelab.m1spring.domain.service;
 
-import cl.awakelab.m1spring.persistence.entity.Country;
-import cl.awakelab.m1spring.persistence.repository.CountryRepository;
+
+import cl.awakelab.m1spring.domain.dto.Country;
+import cl.awakelab.m1spring.domain.repository.CountryDTORepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,11 +11,12 @@ import java.util.Optional;
 @Service
 public class CountryService {
 
-    private final CountryRepository repository;
+    private final CountryDTORepository repository;
 
-    public CountryService(CountryRepository repository) {
+    public CountryService(CountryDTORepository repository) {
         this.repository = repository;
     }
+
 
     public List<Country> getAll(){
         return repository.getAll();

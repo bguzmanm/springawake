@@ -1,7 +1,7 @@
 package cl.awakelab.m1spring.domain.service;
 
-import cl.awakelab.m1spring.persistence.entity.City;
-import cl.awakelab.m1spring.persistence.repository.CityRepository;
+import cl.awakelab.m1spring.domain.dto.City;
+import cl.awakelab.m1spring.domain.repository.CityDTORepository;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
@@ -13,11 +13,12 @@ public class CityService {
 
     Log logger = LogFactory.getLog(CityService.class);
 
-    private final CityRepository repository;
+    private final CityDTORepository repository;
 
-    public CityService(CityRepository repository) {
+    public CityService(CityDTORepository repository) {
         this.repository = repository;
     }
+
 
     public List<City> getAll(){
         List<City> filtrados = repository.getAllByCountryId(2);

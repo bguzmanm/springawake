@@ -18,7 +18,7 @@ public class Address {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="city_id", insertable = false, updatable = false)
-    private City city;
+    private CityEntity cityEntity;
 
     @Column(name="postal_code")
     private String postalCode;
@@ -80,11 +80,11 @@ public class Address {
         this.phone = phone;
     }
 
-    public City getCity() {
-        return city;
+    public CityEntity getCity() {
+        return cityEntity;
     }
 
-    public void setCity(City city) {
-        this.city = city;
+    public void setCity(CityEntity cityEntity) {
+        this.cityEntity = cityEntity;
     }
 }
