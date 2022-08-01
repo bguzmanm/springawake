@@ -7,6 +7,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CityService {
@@ -25,5 +26,9 @@ public class CityService {
         filtrados.forEach(city -> logger.info(city.toString()));
 
         return repository.getAll();
+    }
+
+    public Optional<City> getOne(int cityId){
+        return repository.getOne(cityId);
     }
 }

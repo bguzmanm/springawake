@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Arriendo de Películas Clase B</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>País en Edición</h1>
+        <div th:replace="nav :: navega"></div>
+    </header>
+    <main>
+        <form class="row g-3" th:action="@{/country/save}" method="post" th:object="${country}">
+            <input type="hidden" class="form-control" id="countryId" name="countryId" value="0">
+            <div class="col-md-6">
+                <label for="country" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="country" name="country"
+                       placeholder="Flaitelandia">
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-primary" type="submit">Enviar</button>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-secondary" type="reset">Limpiar</button>
+            </div>
+        </form>
+    </main>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
